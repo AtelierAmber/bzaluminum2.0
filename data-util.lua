@@ -111,7 +111,7 @@ function util.se_landfill(params)
         category = "hard-recycling",
         order = "z-b-"..params.ore,
         subgroup = "terrain",
-        result = "landfill",
+        results = {{type = "item", name = "landfill", amount=1}},
         ingredients = {{type="item", name=params.ore, amount=50}},
       }
     })
@@ -216,8 +216,8 @@ function util.se_matter(params)
           {type="fluid", name="se-space-coolant-supercooled", amount=25},
         },
         results = {
-          {type="item", name=params.ore, params.quant_out},
-          {type="item", name="se-contaminated-scrap", 1},
+          {type="item", name=params.ore, amount = params.quant_out},
+          {type="item", name="se-contaminated-scrap", amount = 1},
           {type="item", name=sedata, amount=1, probability=.99},
           {type="item", name=sejunk, amount=1, probability=.01},
           {type="fluid", name="se-space-coolant-hot", amount=25, catalyst_amount=25},
@@ -539,14 +539,13 @@ function add_product(recipe, product)
   if recipe ~= nil then
     if (product[1] and data.raw.item[product[1]]) or 
     (product.name and data.raw[product.type][product.name]) then
-      if not recipe.normal then
-        if recipe.results == nil then
-          recipe.results = {{recipe.result, recipe.result_count and recipe.result_count or 1}}
-        end
-        recipe.result = nil
-        recipe.result_count = nil
-        table.insert(recipe.results, product)
+      if recipe.results == nil then
+        recipe.results = {}
       end
+      recipe.result = nil
+      recipe.result_count = nil
+      product = {type=(product.type == "fluid" and "fluid") or "item", name=product.name or product[1], amount=product.amount or product[2]}
+      table.insert(recipe.results, product)
     end
   end
 end
@@ -827,7 +826,7 @@ function util.remove_product(recipe_name, old, options)
 end
 
 function remove_product(recipe, old)
-  index = -1
+  local index = -1
 	if recipe ~= nil and recipe.results ~= nil then
 		for i, result in pairs(recipe.results) do 
       if result.name == old then

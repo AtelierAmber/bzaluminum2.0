@@ -24,7 +24,7 @@ if mods["space-exploration"] then
     starting_rq_factor_multiplier = 1.5,
   }
 
-if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
+if string.sub(mods["space-exploration"], 1, 3) == "0.7" then
   util.se_matter({ore="aluminum-ore", energy_required=1, quant_out=10, stream_out=60})
   data:extend({
   {
@@ -83,7 +83,7 @@ if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
     type = "recipe",
     name = "aluminum-ingot",
     category = "casting",
-    results = {{type = "item", name = "aluminum-ingot", 1}},
+    results = {{type = "item", name = "aluminum-ingot", amount = 1}},
     energy_required = 25,
     ingredients = {
       {type = "fluid", name = "molten-aluminum", amount = 250},

@@ -16,10 +16,9 @@ require("compatibility/crafting-efficiency")
 local util = require("data-util")
 if data.raw.resource["copper-ore"] then
   if mods["space-exploration"] then
-    local noise = require('noise');
     -- decrease richness of copper a bit
     data.raw.resource["copper-ore"].autoplace.richness_expression = 
-      data.raw.resource["copper-ore"].autoplace.richness_expression * noise.to_noise_expression(3/4)
+      data.raw.resource["copper-ore"].autoplace.richness_expression .. "*(3/4)"
   else
     log("Replacing vanilla copper-ore autoplace")
     local resource_autoplace = require('resource-autoplace');
