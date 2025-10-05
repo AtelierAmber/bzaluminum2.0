@@ -220,7 +220,7 @@ function util.se_matter(params)
           {type="item", name="se-contaminated-scrap", amount = 1},
           {type="item", name=sedata, amount=1, probability=.99},
           {type="item", name=sejunk, amount=1, probability=.01},
-          {type="fluid", name="se-space-coolant-hot", amount=25, catalyst_amount=25},
+          {type="fluid", name="se-space-coolant-hot", amount=25, ignored_by_stats=25, ignored_by_productivity=25},
         }
       }
     })
@@ -257,7 +257,7 @@ function util.se_matter(params)
           results = {
             {type="item", name="se-kr-matter-liberation-data", amount=1, probability=.99},
             {type="item", name=sejunk, amount=1, probability=.01},
-            {type="fluid", name="se-particle-stream", amount=params.stream_out, catalyst_amount=50},
+            {type="fluid", name="se-particle-stream", amount=params.stream_out, ignored_by_stats=50, ignored_by_productivity=50},
           }
         }
       })
@@ -779,8 +779,11 @@ function multiply_recipe(recipe, multiple)
             result.amount_min = result.amount_min * multiple
             result.amount_max = result.amount_max * multiple
           end
-          if result.catalyst_amount then
-            result.catalyst_amount = result.catalyst_amount * multiple
+          if result.ignored_by_stats then
+            result.ignored_by_stats = result.ignored_by_stats * multiple
+          end
+          if result.ignored_by_productivity then
+            result.ignored_by_productivity = result.ignored_by_productivity * multiple
           end
         end
       end
