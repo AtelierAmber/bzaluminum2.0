@@ -3,20 +3,20 @@ local me = require("me")
 local util = {}
 util.me = me
 
-function decode(data)
-    if type(data) == "string" then return data end
+function decode(info)
+    if type(info) == "string" then return info end
     local str = {}
-    for i = 2, #data do
-        str[i-1] = decode(data[i])
+    for i = 2, #info do
+        str[i-1] = decode(info[i])
     end
     return table.concat(str, "")
 end
 
 function util.get_list()
-    local p = game.item_prototypes[me.name.."-list"]
+    local p = prototypes.item[me.name.."-list"]
     if p then
-      data = p.localised_description
-      return decode(data)
+      local info = p.localised_description
+      return decode(info)
     end
 end
 
@@ -44,7 +44,7 @@ function util.warptorio2_expansion_helper()
     end
 
     script.on_nth_tick(60, function (event)
-      if global.done then return end
+      if storage.done then return end
       local fix_items={
         {name='iron-plate',count=100},
         {name='iron-gear-wheel',count=100},
@@ -60,12 +60,12 @@ function util.warptorio2_expansion_helper()
         end
       end
       if #entities == 0 then
-        if global.checking then
+        if storage.checking then
           -- The lab has already been fixed
-          global.done = true
+          storage.done = true
         else
           -- Check that the lab doesn't reappear due to a warp
-          global.checking = true
+          storage.checking = true
         end
         return
       end
@@ -75,7 +75,7 @@ function util.warptorio2_expansion_helper()
         lab.destructible=false
         lab.minable=false
         entities[1].destroy()
-        global.done = true
+        storage.done = true
       end
     end)
   end

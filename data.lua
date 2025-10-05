@@ -9,8 +9,8 @@ local util = require("data-util");
 
 
 if mods.Krastorio2 then
-  if data.raw.item["automation-core"] then
-    data.raw.item["automation-core"].icon = "__bzaluminum__/graphics/icons/automation-core.png"
+  if data.raw.item["kr-automation-core"] then
+    data.raw.item["kr-automation-core"].icon = "__bzaluminum__/graphics/icons/automation-core.png"
   end
   if data.raw.technology["kr-automation-core"] then
     data.raw.technology["kr-automation-core"].icon = "__bzaluminum__/graphics/technology/automation-core.png"

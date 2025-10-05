@@ -1,7 +1,10 @@
 local resource_autoplace = require('resource-autoplace');
-local noise = require('noise');
 
 local util = require("data-util");
+
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["aluminum-ore"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["aluminum-ore"] = {}
+resource_autoplace.initialize_patch_set("aluminum-ore", true)
 
 data:extend({
 	{
@@ -10,10 +13,6 @@ data:extend({
     name = "aluminum-ore",
     richness = true,
     order = "b-e"
-	},
-	{
-    type = "noise-layer",
-    name = "aluminum-ore"
 	},
 	{
     type = "resource",

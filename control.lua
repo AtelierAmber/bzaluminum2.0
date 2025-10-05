@@ -7,7 +7,7 @@ function on_console_chat(event)
       local list = util.get_list()
       if list and #list>0 then
         local filename = util.me.name..".txt"
-        game.write_file(filename, list, false, event.player_index)
+        helpers.write_file(filename, list, false, event.player_index)
         player.print("Wrote recipes to script-output/"..filename)
       end
     end

@@ -1,13 +1,13 @@
 {
     "name": "bzaluminum",
-    "version": "0.4.28",
-    "factorio_version": "1.1",
+    "version": "2.0.0",
+    "factorio_version": "2.0",
     "title": "Aluminum",
     "author": "Brevven",
     "contact": "",
     "homepage": "",
     "dependencies": [
-      "base >= 1.1.0",
+      "base >= 2.0",
       "bzfoundry >= 0.2.1",
       "~ bz-dsr-bridge",
       "? bztitanium >= 1.0.3",
