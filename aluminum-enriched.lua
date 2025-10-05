@@ -73,7 +73,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "dirty-water-filtration-aluminum",
-		category = "fluid-filtration",
+		category = "kr-fluid-filtration",
 		icons =
 		{
 			{

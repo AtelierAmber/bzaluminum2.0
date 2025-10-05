@@ -129,7 +129,7 @@ data:extend({
     unit = {
       count = 10, time = 15,
       ingredients = mods.Krastorio2 and 
-      {{"basic-tech-card", 1}} or {{"automation-science-pack", 1}},
+      {{"kr-basic-tech-card", 1}} or {{"automation-science-pack", 1}},
     },
     prerequisites = {},
     ignore_tech_cost_multiplier = true,
@@ -207,8 +207,8 @@ if mods.Krastorio2 then
   {
     type = "recipe",
     name = "aluminum-cable-s-c",
-    category = "smelting-crafting",
-    subgroup = "smelting-crafting",
+    category = "kr-smelting-crafting",
+    subgroup = "kr-smelting-crafting",
     order = "d[aaac-cable]",
     enabled = false,
     energy_required = 0.5,
@@ -223,8 +223,8 @@ if mods.Krastorio2 then
   {
     type = "recipe",
     name = "aluminum-cable-enriched-s-c",
-    category = "smelting-crafting",
-    subgroup = "smelting-crafting",
+    category = "kr-smelting-crafting",
+    subgroup = "kr-smelting-crafting",
     order = "d[aaac-cable]",
     enabled = false,
     energy_required = 0.5,

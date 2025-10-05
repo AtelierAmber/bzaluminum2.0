@@ -1,7 +1,7 @@
 -- Matter recipes for Krastorio2
 if mods["Krastorio2"] then
 local util = require("data-util");
-local matter = require("__Krastorio2__/lib/public/data-stages/matter-util")
+local matter = require("__Krastorio2__/prototypes/libraries/matter")
 
 data:extend(
 {
@@ -28,7 +28,7 @@ data:extend(
       {
         {"production-science-pack", 1},
         {"utility-science-pack", 1},
-        {"matter-tech-card", 1}
+        {"kr-matter-tech-card", 1}
       },
       time = 45
     }
@@ -37,35 +37,33 @@ data:extend(
 
 local flake_graphite_matter = 
 	{
-    item_name = "aluminum-ore",
-    minimum_conversion_quantity = 10,
-    matter_value = 5,
+    material = {type="item", name="aluminum-ore", amount=10},
+    matter_count = 5,
     energy_required = 1,
     need_stabilizer = false,
     unlocked_by_technology = "aluminum-matter-processing"
 	}
-matter.createMatterRecipe(flake_graphite_matter)
+matter.make_recipes(flake_graphite_matter)
 
 local graphite_matter = 
 	{
-    item_name = "alumina",
-    minimum_conversion_quantity = 10,
-    matter_value = 7.5,
+    material = {type="item", name="alumina", amount=10},
+    matter_count = 7.5,
     energy_required = 2,
     only_deconversion = true,
     need_stabilizer = true,
     unlocked_by_technology = "aluminum-matter-processing"
 	}
-matter.createMatterRecipe(graphite_matter)
+matter.make_recipes(graphite_matter)
+
 local graphite_matter = 
 	{
-    item_name = "aluminum-plate",
-    minimum_conversion_quantity = 10,
-    matter_value = 10,
+    material = {type="item", name="aluminum-plate", amount=10},
+    matter_count = 10,
     energy_required = 3,
     only_deconversion = true,
     need_stabilizer = true,
     unlocked_by_technology = "aluminum-matter-processing"
 	}
-matter.createMatterRecipe(graphite_matter)
+matter.make_recipes(graphite_matter)
 end

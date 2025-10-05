@@ -169,7 +169,7 @@ function util.k2matter(params)
               {
                 {"production-science-pack", 1},
                 {"utility-science-pack", 1},
-                {"matter-tech-card", 1}
+                {"kr-matter-tech-card", 1}
               },
               time = 45,
             },
@@ -284,7 +284,7 @@ function util.se_matter(params)
                 {"se-astronomic-science-pack-4", 1},
                 {"se-energy-science-pack-4", 1},
                 {"se-material-science-pack-4", 1},
-                {"matter-tech-card", 1},
+                {"kr-matter-tech-card", 1},
                 {"se-deep-space-science-pack-1", 1},
               }
               
