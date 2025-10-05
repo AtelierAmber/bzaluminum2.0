@@ -139,7 +139,7 @@ data:extend({
 if mods["aai-industry"] then
   util.add_prerequisite("copper-processing", "electricity")
 else
-  --util.add_prerequisite("copper-processing", "automation")
+  --util.add_prerequisite("copper-processing", "automation") This causes an infinite loop when K2 is enabled. What was the purpose?
 end
 
 data:extend({
